@@ -1,0 +1,23 @@
+<% for user in @users %>
+    <% if !(user.tixes.count == 0)%>
+             <big><b><em><%=h user.fullname %></em></b></big>
+                <table border = "1">
+                <th>Game</th>
+                 <th>Guest Name</th>
+            </table>
+
+<% for tix in @tixes %>
+    <% if tix.user_borrow_id == user.id  %>
+            <table border = "1">
+                <tr>
+                <td><%= tix.pool.game %></td>
+                <td><%= tix.guestname.upcase %></td>
+                </tr>
+            </table>
+            <% end %>
+        <% end %>
+    <% if true %>
+    <br />
+    <% end %>
+  <% end %> 
+  <% end %> 

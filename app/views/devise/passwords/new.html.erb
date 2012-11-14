@@ -1,0 +1,16 @@
+<title>Retrieve Password</title>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+<h2></h2>
+<div id="formDevise">
+<legend>Forget your Password?? Turn-in Your Pads!</legend>
+<fieldset>
+  <p><%= f.label :email, 'USMA Email' %><br />
+  <%= f.text_field :email %></p>
+  <div id= "submit2">
+    <br>
+  <p><%= f.submit "Send Reset Instructions" %></p>
+<% end %>
+  </div>
+     </fieldset>
+    </div>

@@ -1,0 +1,32 @@
+<% if can? :manage, :all %>
+<title>Admin Homepage</title>
+<h3>Admin Links</h3>
+<div id="Admin">
+  <ul>
+    <li><a ><%= link_to "Add Status", statuses_path %></a></li>
+    <li><a ><%= link_to "Edit User", users_path %></a></li>
+    <li><a><%= link_to "Create Game Tickets ", pools_path %></a></li>
+</ul>
+</div>
+<div id='usercontainermain2'>
+<div id='usersummarymain2'>
+<% @usersummary.each do |usersummary| %>
+User Summary
+<p>Travel Squaders <%= usersummary.travel %><br/>
+Dress Squaders <%= usersummary.dress %><br/>
+B-Squaders <%= usersummary.bsquad %><br/>
+Managers <%= usersummary.mngr %><br/>
+Not Knowns <%= usersummary.notknown %><br/>
+Admins <%= usersummary.adminum %></p>
+</div>
+</div>
+<% end %>
+<% else %>
+<title>Unauthorized Access</title>
+<h3 align='center'>Unauthorized Access</h3>
+<div id="adminError"><p>You Are Not Authorized To View This Page!</p></div>
+<div id="submit">
+<%= link_to 'Get Me Out', root_path %>
+</div>
+<% end %>
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tag %>
+  <%= favicon_link_tag "favicon.ico" %>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<!--header start -->
+<div id="header" >
+
+<%= image_tag "logo.png", :class => 'logo' %>
+  <%= image_tag "logo.png", :class => 'logo2' %> <p class="topText">STAY TOGETHER :<span class="smallTxt"> Class of 2011 Brought it Back!</span></p>
+<div id="subhead">
+ <ul>
+    <li><a><%= link_to "Home", root_path %></a></li>
+    <li><a><%= link_to "Dev Team", about_index_path %></a></li>
+<% if can? :manage, :all %>
+    <li><a ><%= link_to "Admin", admin_index_path %></a></li>
+    <li><a ><%= link_to "Ticket Report", tixrollup_index_path %></a></li>
+       <% else %>
+   <li><a ><%= link_to "Schedule", "http://www.goarmysports.com/sports/m-footbl/sched/army-m-footbl-sched.html" %></a></li>
+   <li><a ><%= link_to "Army Football", "http://www.goarmysports.com/sports/m-footbl/army-m-footbl-body.html" %></a></li>
+       <% end %>
+</ul>
+</div>
+</div>
+
+<div id="body" >
+<p class="alert"><%= alert %></p>
+<p class="notice"><%= notice %></p>
+  <%=yield%>
+
+
+
+<!--right panel end -->
+<br class="spacer" />
+
+
+<div id="footer">
+<ul>
+    <% if can? :manage, :all %>
+    <li><a></a></li>
+    <li><%= link_to "Home", root_path %>|</li>
+    <li><%= link_to "About", about_index_path %>|</li>
+    <li><a href="http://www.goarmysports.com/sports/m-footbl/army-m-footbl-body.html">Army Football</a>|</li>
+    <li><%= link_to "Admin", admin_index_path %></li>
+      <% else %>
+  <li><a></a></li>
+  <li><%= link_to "Home", root_path %>|</li>
+  <li><%= link_to "About", about_index_path %>|</li>
+  <li><a href="http://www.goarmysports.com/SportSelect.dbml?&DB_OEM_ID=11100&SPID=4587&SPSID=102089">Schedule</a>|</li>
+  <li><a href="http://www.goarmysports.com">Army Football</a></li>
+      <% end %>
+</ul>
+    &nbsp;
+  <a href="index.html"></a>
+    <p class="design">Format By : <a href="http://www.templateworld.com">Template World &nbsp;</a>  Designed By : <a> Anees M. Merzi</a></p></div> <!--footer end -->
+</div>
+
+
+
+</html>

@@ -1,0 +1,57 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+en:
+  errors:
+    messages:
+      expired: "has expired, please request a new one"
+      not_found: "Does Not Exist"
+      already_confirmed: "Was Already Confirmed, Please Login"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 Error Prevented This Action:"
+        other: "%{count} Errors Prevented This Action:"
+
+  devise:
+    failure:
+      already_authenticated: 'You Are Already Signed-In'
+      unauthenticated: 'You Must Sign-in Before Viewing This Page'
+      unconfirmed: 'You Have To Confirm Your Account'
+      locked: 'Your account is locked.'
+      invalid: 'Invalid email or password.'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'Your session expired, please sign in again to continue.'
+      inactive: 'Your account was not activated yet.'
+    sessions:
+      signed_in: 'Login Successful'
+      signed_out: 'Logout Successful'
+    passwords:
+      send_instructions: 'You Will Receive An Email with Instructions on How to Reset Your Password in a Few Minutes'
+      updated: 'Your Password is Changed'
+      updated_not_active: 'Your Password is Changed'
+      send_paranoid_instructions: "If your e-mail exists on our database, you will receive a password recovery link on your e-mail"
+    confirmations:
+      send_instructions: 'You Will Receive An Email with Instructions on How to Confirm your Account in a Few Minutes'
+      send_paranoid_instructions: 'If your e-mail exists on our database, you will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    registrations:
+      signed_up: 'Welcome! You have Registered successfully. '
+      signed_up_but_unconfirmed: 'An Email with a Confirmation Link has been Sent to your Inbox. Please Open the Link to Activate Your Account'
+      signed_up_but_inactive: 'Register Successful. However, Your account is not yet activated'
+      signed_up_but_locked: 'You have signed up successfully. However, we could not sign you in because your account is locked.'
+      updated: 'You Updated your Account Successful'
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
+      destroyed: 'Bye! Your Account is no longer Valid'
+    unlocks:
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account has been unlocked successfully. Please sign in to continue.'
+      send_paranoid_instructions: 'If your account exists, you will receive an email with instructions about how to unlock it in a few minutes.'
+    omniauth_callbacks:
+      success: 'Successfully authorized from %{kind} account.'
+      failure: 'Could not authorize you from %{kind} because "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmation Instructions'
+      reset_password_instructions:
+        subject: 'Reset Password?'
+      unlock_instructions:
+        subject: 'Unlock Instructions'

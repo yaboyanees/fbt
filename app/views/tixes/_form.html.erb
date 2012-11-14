@@ -1,0 +1,24 @@
+<%= form_for(@tix) do |f| %>
+  <% if @tix.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tix.errors.count, "error") %> prohibited this tix from being saved:</h2>
+
+      <ul>
+      <% @tix.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :guest_f_name, "Guest First Name"%><br />
+    <%= f.text_field :guest_f_name, :size => 20  %>
+  </div>
+  <div class="field">
+    <%= f.label :guest_l_name, "Guest Last Name"%><br />
+    <%= f.text_field :guest_l_name, :size => 20  %>
+  </div>
+  <div id="submit4">
+    <%= f.submit "Submit" %> or <%= link_to 'Cancel', tixes_path %>
+  </div>
+<% end %>

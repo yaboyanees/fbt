@@ -1,0 +1,6 @@
+<br />
+<%= f.select :role_name, User::ROLE_TYPES, :prompt => "Select a Role" %> 
+<%= f.collection_select :status_id, Status.all, :id, :status_name, :prompt => 'Select a Status' %><br />
+
+    
+

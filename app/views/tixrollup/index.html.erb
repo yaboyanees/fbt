@@ -1,0 +1,47 @@
+<% if can? :manage, :all %>
+<title>Tix Report</title>
+<h3 align='center'>Ticket List</h3>
+<% @users.each do |user| %>
+<% if user.tixes.present? %>
+<big><b><em><%= user.fullname %></em></b></big>
+<table border="1" width="100%">
+                <th align="center" width="33%">Game</th>
+                 <th align="center" width="33%" >Guest Name</th>
+                 <th align="center" width="33%">Original Owner</th>   
+                 </table>
+   <% @tixes.each do |tix| %>
+    <% if tix.user_borrow_id == user.id  %>
+                 <table border="1" width="100%">
+                <tr>
+                <td align='center' width="33%"><%= tix.pool.gamename %></td>
+            <% if tix.guestname.blank?%>
+                    <td align='center' width="33%"><%= link_to 'Transfer Ticket', tix, :method => :get %></td>
+                    <td align='center' width="33%"><%= tix.fullname %></td>
+                <% else %>
+                    <td align='center' width="33%"><%= tix.guestname.upcase %></td>
+                    <td align='center' width="33%"><%= tix.fullname %></td>
+                <% end %>
+                </tr>
+            </table>
+            <% end %>
+    <% end %> 
+    <% if true %>
+    <br />
+    <% end %>
+  <% end %> 
+  <% end %> 
+  
+<br>
+<div id="submit">
+<%= button_to 'Export Report', tixrollup_export_url %> 
+</div>
+<% else %>
+<title>Unauthorized Access</title>
+<h3 align='center'>Unauthorized Access</h3>
+<div id="adminError"><p>You Are Not Authorized To View This Page!</p></div>
+<div id="submit">
+<%= link_to 'Get Me Out', root_path %>
+</div>
+<% end %>
+
+

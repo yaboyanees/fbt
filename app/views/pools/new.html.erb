@@ -1,0 +1,14 @@
+<% if can? :manage, :all %> 
+ <title>Add Opponent Page</title>
+<h3>New Game</h3>
+
+<%= render 'form' %>
+<% else %>
+<title>Unauthorized Access</title>
+<h3 align='center'>Unauthorized Access</h3>
+<div id="adminError"><p>You Are Not Authorized To View This Page!</p></div>
+<div id="submit">
+<%= link_to 'Get Me Out', root_path %>
+</div>
+<% end %>
+

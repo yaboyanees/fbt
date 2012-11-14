@@ -1,0 +1,33 @@
+<% if can? :manage, :all %>
+ <title>Status Index Page</title>
+ <h3>Listing Statuses</h3>
+ <div id="formsST">
+
+<table border='1'>
+  <tr>
+    <th>Status Name</th>
+  </tr>
+
+<% @statuses.each do |status| %>
+  <tr>
+    <td><%= status.status_name %></td>
+    <td><%= link_to 'Edit', edit_status_path(status) %></td>
+    <td><%= link_to 'Destroy', status, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+</div>
+<div id="submitST">
+<%= link_to 'New Status', new_status_path %> or <%= link_to "Admin Page", admin_index_path %>
+</div>
+<% else %>
+<title>Unauthorized Access</title>
+<h3 align='center'>Unauthorized Access</h3>
+<div id="adminError"><p>You Are Not Authorized To View This Page!</p></div>
+<div id="submit">
+<%= link_to 'Get Me Out', root_path %>
+</div>
+<% end %>
+

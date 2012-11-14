@@ -1,0 +1,8 @@
+<%= form_for(@tix) do |f| %>
+<div class="field">
+    <%= f.label :user_borrow_id, "Transfer Ticket To:" %><br />
+    <%= f.collection_select(:user_borrow_id, @borrowers, :id, :fullname , options ={:prompt =>"Transfer Ticket"})%>
+  </div>
+  <div class="actions">
+    <%= f.submit "Transfer", :confirm => "Click OK to Transfer" %></div>
+<% end %>

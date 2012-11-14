@@ -1,0 +1,120 @@
+	<% if user_signed_in? %>
+	<title>Welcome <%= current_user.fullname %>!</title>
+<h1></h1>
+ <div id="left">
+<div id="left1">
+<a class="pic1"></a>
+<p class="boxTxt1"><span ><%= link_to "TICKETS", tixes_path %></span><b>Add guest information and/or transfer tickets to other players!</b></p> <br class="spacer" /> </div>
+<!--left1 end -->
+<!--left2 start -->
+<div id="left2">
+<p class="pic2"></p>
+<p class="boxTxt2"><span><%= link_to "LOGOUT", destroy_user_session_path, :method => :delete %>
+</span><b> Click here to Logout after you are finished!</b></p> 
+<br class="spacer" /> 
+</div>
+<div id="left3">
+<p class="pic3"></p>
+<p class="boxTxt3"><span><%= link_to "HELP", help_index_path %>
+</span><b>Click here if you Need Help. Screencasts on the Next Page!</b></p>
+<!--left3 end -->
+<br class="spacer" />
+</div>
+<!--left2 end -->
+<br class="spacer" />
+</div>
+<div id="right">
+<h4>|<%= link_to "Logout", destroy_user_session_path, :method => :delete %>|</h4>
+<h2>Welcome <%= current_user.fullname %></h2>
+<% if current_user.status.name == 'travelling' %>
+<p class="rightTxt3">You are currently in the system as <b><%= current_user.status_name %></b>.
+Please notify the head manager immediately if you believe this is a mistake.</p>
+<p class="rightTxt3"><span><b>You received <%= pluralize(current_user.tixes.count, "ticket")  %> for this week</b></span></p>
+<p class="rightTxt3">With this honor, it must not be taken lightly. You have definitely
+proven your importance to the team. For starters and guys playing, it is your time to shine and represent. Stay calm and trust your abilities
+and your coaches. You are prepared for what you are about to do. If you are not playing, help your brother in front of you on the field.
+Mentally go through the plays and help your brother out if you notice something of importance. There will be a time when you step on the field so carry yourself like you are playing this week.</p>
+<p class="rightTxt3"><span>Never get complacent. Each week is a new week and another opportunity for a W! Lets get it!</span></p>
+<% elsif current_user.status.name == 'dressing' %>
+<p class="rightTxt3">You are currently in the system as <b><%= current_user.status_name %></b>.
+Please notify the head manager immediately if you believe this is a mistake.</p>
+<p class="rightTxt3"><span>You received <%= pluralize(current_user.tixes.count, "ticket") %> for this week</span></p>
+<p class="rightTxt3">You are that much closer to making the travekking roster and ultimately getting some playing time. This status is tough for
+most players because you can go down to B-squad or go up to A-squad. It's your decision to either go hard to your utmost ability or be conempt 
+with your current status and slip back down to b-squad.</p>
+<p class="rightTxt3"><span>You were given this role because coaches are testing to see if you can handle it.
+Can you accept the challenge?</span></p>
+<% elsif current_user.status.name == 'b_squad' %>
+<p class="rightTxt3">You are currently in the system as <b><%= current_user.status_name %></b>.
+Please notify the head manager immediately if you believe this is a mistake.</p>
+<p class="rightTxt3"><span>You received <%= pluralize(current_user.tixes.count, "ticket") %> for this week</span></p>
+<p class="rightTxt3">Don't be discouraged. Everyone starts at the bottom. Its the successful that work week in and week out to get better. 
+Hard work never goes unnoticed! You can help the team and be apart of their success or hurt the team and sulk in their defeats. As a b-squad player, 
+your job is to give the man across from you the best look for the week at whatever positon you are at. Don't think that the coaches don't care 
+about you because you are on b-squad.</p> 
+<p class="rightTxt3"><span>Giving it your all can lead to a win for Army Football and a spot for you on the field. Never give up!</span></p>
+<% elsif current_user.status.name == 'manager' %>
+<p class="rightTxt3">You are currently in the system as <b><%= current_user.status_name %></b>.
+Please notify the head manager immediately if you believe this is a mistake.</p>
+<p class="rightTxt3"><span>You received <%= pluralize(current_user.tixes.count, "ticket") %> for this week</span></p>
+<p class="rightTxt3">The work you do for the team each and every day does not go unnoticed. You are very much apart of this team even though you
+are not on the field in pads. You have a job just like everyone else on the field. You handle all the jobs that go into a smooth game.
+The team may not always acknowledge your role but know that it is very appreciated from an old Army Football Player.</p> 
+<p class="rightTxt3"><span>Your belief in a win makes the team that much more confident. 
+Thank You from an Retired Army Football Player</span></p>
+<% elsif current_user.status.name == 'admin' %>
+<p class="rightTxt3">You are currently in the system as <%= current_user.status_name %>.
+Please notify the head manager immediately if you believe this is a mistake.</p>
+<p class="rightTxt3"><span>As you know, being the Admin carries a ton of responsibility on your part.</span></br> If you have any questions
+or run into any issues while running the site, consult the Help Link or the <a href="../../../Army Football Ticket Manual.pdf"> USER MANUAL </a>for the site. 
+If the problem is out of your hands, please notify COL. Tom Cook or 2LT Anees Merzi.</p>
+<% elsif current_user.status.name == 'not known' %>
+<p class="rightTxt3">You are currently in the system as <%= current_user.status_name %>.
+Please notify the head manager immediately if you believe this is a mistake.</p>
+<p class="rightTxt3"><span>Please allow time for the Admin to verify your identity and 
+grant you access.</span></p>
+<p class="rightTxt3">If it is game week and you have heard nothing from the Admin, please contact him/her directly.
+They may have lost you in the roster somewhere. Otherwise, just be patient and you should have access to the site in no time. </p>
+<p class="rightTxt3"><span>You are about to experience
+the cleanest solution for ticket management. You desrve it as a West Pointer!</span></p>
+<% end %>
+</div>
+		<% else %>
+<title>Football Ticket Website</title>
+<h1></h1>
+ <div id="left">
+<div id="left1">
+<a class="pic1"></a>
+<p class="boxTxt1"><span><%= link_to "REGISTER", new_user_registration_path %></span><b> To gain access to this site, you must be a registered User!</b></p> <br class="spacer" /> </div>
+<!--left1 end -->
+<!--left2 start -->
+<div id="left2">
+<p class="pic2"></p>
+<p class="boxTxt2"><span><%= link_to "LOGIN", new_user_session_path %></span><b> Click here to Login and begin using this site!</b></p> <br class="spacer" /> </div>
+<!--left2 end -->
+<!--left3 start -->
+<div id="left3">
+<p class="pic3"></p>
+<p class="boxTxt3"><span><%= link_to "PASSWORD?", new_user_password_path %>
+</span><b>Click here if you Need to Change your Password!</b></p>
+<!--left3 end -->
+<br class="spacer" />
+</div>
+<!--left2 end -->
+<br class="spacer" />
+</div>
+<div id="right">
+<h3>|<%= link_to "Register", new_user_registration_path %>| or |<%= link_to "Login", new_user_session_path %>|</h3>
+<h2>Welcome To Army Football</h2>
+<p class="rightTxt1">This site is brought to you from one of your own, Anees
+Merzi. With the diligent help and precious time from a dedicated
+instructor/mentor, Colonel Tom Cook, we were able to take a dream and make it a
+reality. </p>
+<p class="rightTxt2"><span>This site is designed to be fully functional
+for all parties involved with the ticket process!</span> </br>We only ask you to not give tickets to teachers or
+people who you barely know unless there are enough tickets for your brothers
+first. If you are not using your tickets, please take the time to transfer them to a brother
+or to the head manager so he can distribute to those in need.</p>
+<p class="rightPic"></p>
+</div>
+		<% end %>

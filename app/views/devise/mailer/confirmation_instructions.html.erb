@@ -1,0 +1,6 @@
+<h2>Welcome <%= @resource.fullname %>!</h2>
+<p>Once confirmed, you will still need the System Admin to confirm your information before granting you access to this Site.  You will be notified when your account is fully operational. </p>
+<p>All you need to do is confirm your account through the link below:</p>
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p>Please do not respond to this automated email. Contact the Admin directly via email if there are any issues</p>
+

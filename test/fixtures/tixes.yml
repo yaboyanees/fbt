@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  guest_f_name: MyString
+  guest_l_name: MyString
+  user_id: 1
+  user_borrow_id: 1
+  pool_id: 1
+
+two:
+  guest_f_name: MyString
+  guest_l_name: MyString
+  user_id: 1
+  user_borrow_id: 1
+  pool_id: 1

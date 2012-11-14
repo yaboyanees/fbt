@@ -1,0 +1,10 @@
+<div id="forms">
+
+<p>
+  <b>Name:</b>
+  <%= @status.name %>
+</p>
+</div>
+<div id="submit">
+<%= link_to 'Edit', edit_status_path(@status) %> | <%= link_to 'Back', statuses_path %>
+</div>

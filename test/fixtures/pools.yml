@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  game: MyString
+  amount: 1
+  travelling: 1
+  dressing: 1
+  b_squad: 1
+  manager: 1
+  admin: 1
+  gameday: 2012-03-20
+
+two:
+  game: MyString
+  amount: 1
+  travelling: 1
+  dressing: 1
+  b_squad: 1
+  manager: 1
+  admin: 1
+  gameday: 2012-03-20

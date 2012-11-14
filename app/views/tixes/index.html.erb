@@ -1,0 +1,47 @@
+<title><%= current_user.fullname %>'s Tickets Index Page</title>
+<div id="formstix2">
+<h1><%= current_user.fullname %>'s Tickets </h1>
+
+   <% if current_user.tixes.empty? %>
+<h4>Tickets Are Not Up Yet!</h4>
+<p>Please Check-In Later</p>
+</div>
+
+   <% else %>
+<% for pool in @pools %>
+   <h4>BEAT <%= pool.gamename %></h4>
+</div>
+   <% end %>
+   
+      <% for tix in @tixes %>
+          <table border="1" width="62%">
+
+            <% if current_user.id == tix.user_borrow_id %>
+            <% if tix.guestname.blank? %>
+                <div id="formsGuestNameL">
+               <%= render 'tixget' %>
+                </div>
+                <div id="formsGuestNameM">
+                </br>
+                <h2>or</h2>
+                </div>
+                <div id="formsGuestNameR">
+                <%= render 'transfer' %>
+                </div>
+	  		<% end %>
+
+            <% if tix.guestname.present? && tix.pool_id == pool.id %>         
+      <table>
+        <tr>
+          <td></td>
+        </tr>
+        <th><b>Guest Names</b></th>
+      </table>
+      <table border ="1" width="62%">
+                <td width="31%" align="center"><%= tix.guestname %> </td>
+                <td width="31%" align="center"><%= link_to 'Edit ticket', edit_tix_path(tix) %></td>
+            <% end %>
+      <% end %>
+  <% end %>
+  </table>
+<% end %>

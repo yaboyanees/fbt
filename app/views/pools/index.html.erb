@@ -1,0 +1,62 @@
+<% if can? :manage, :all %> 
+ <title>Game Information Page</title>
+<h3>Game List</h3>
+ <div id="formspool">
+<table border="1" width="100%">
+  <tr>
+    <th>Game</th>
+    <th>Amount</th>
+    <th>Game Day</th>
+    <th>Travelling</th>
+    <th>Dressing</th>
+    <th>B Squad</th>
+    <th>Manager</th>
+    <th>Admin</th>
+    <th>Tix Allocated</th>
+  </tr>
+
+
+<% @pools.each do |pool| %>
+  <tr>
+    <td align="center"><%= pool.game %></td>
+    <td align="center"><%= pool.amount %></td>
+    <td align="center"><%= pool.gameday.to_s%></td>
+    <td align="center"><%= pool.travelling %></td>
+    <td align="center"><%= pool.dressing %></td>
+    <td align="center"><%= pool.b_squad %></td>
+    <td align="center"><%= pool.manager %></td>
+    <td align="center"><%= pool.admin %></td>
+    <td align="center"><%= pool.totalamount %></td>
+    <td><%= link_to 'Destroy', pool, :method => :delete, :confirm => "Click OK to Delete This Game" %></td>
+  </tr>
+<% end %>
+</table>
+<% @usersummary.each do |usersummary|%>
+<h2></h2>
+<div id='usercontainer'>
+<div id='usersummary'>
+User Summary
+<p>Travel Squaders <%= usersummary.travel %><br/>
+Dress Squaders <%= usersummary.dress %><br/>
+B-Squaders <%= usersummary.bsquad %><br/>
+Managers <%= usersummary.mngr %><br/>
+</div>
+</div>
+<% end %>
+
+
+
+<br />
+
+<div id="submitPool">
+<%= link_to 'New Game', new_pool_path %> or <%= link_to "Admin Page", admin_index_path %>
+</div>
+</div>
+<% else %>
+<title>Unauthorized Access</title>
+<h3 align='center'>Unauthorized Access</h3>
+<div id="adminError"><p>You Are Not Authorized To View This Page!</p></div>
+<div id="submit">
+<%= link_to 'Get Me Out', root_path %>
+</div>
+<% end %>

@@ -1,0 +1,17 @@
+<%= form_tag update_individual_users_path, :method => :put do %>  
+
+   <title>Edit User Status & Role</title>
+   <h3>Edit User Status & Role</h3>
+   <div id="formsEditIndividual">
+          <% @users.each do |user| %>  
+        <b><%= user.fullname%>
+<%= fields_for "users[]", user do |f| %> 
+		<%= render 'fields', :f => f %>
+		<br />
+    <% end %>  
+   <% end %>
+   </div>
+    <div id="submitEUsers">
+   <p><%= submit_tag "Submit" %> or <%= link_to 'Cancel', users_path %></p>  
+<% end %>
+</div>

@@ -1,0 +1,55 @@
+<%= form_for(@pool) do |f| %>
+  <% if @pool.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pool.errors.count, "Issue") %> prohibited these Tickets to be issued:</h2>
+
+      <ul>
+      <% @pool.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+
+    </div>
+  <% end %>
+
+ <div id="forms">
+  <div class="field">
+    <%= f.label :game %><br />
+    <%= f.text_field :game, :size => 22 %>
+  </div><br />
+  <div class="field2">
+    <%= f.label :amount, "Game Amount" %><br />
+    <%= f.text_field :amount, :size => 9 %>
+  </div>
+  </div><br />
+  <div id="labelform">
+    <%= f.label :travelling, "Travelling"%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.label :dressing, "Dressing" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
+    <%= f.label :b_squad, "B-Squad" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.label :manager, "Manager" %><br />
+    </div>
+    <div id="fieldform">
+    <%= f.text_field :travelling, :size => 9 %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.text_field :dressing, :size => 9 %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.text_field :b_squad, :size => 9 %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.text_field :manager, :size => 9 %>
+  </div>
+<div id="formsG2">
+  <div class="field">
+    <br />
+    <%= f.label :gameday, "Game Day" %><br />
+    <%= f.date_select :gameday %>
+  </div>
+  <br />          
+  <div class="actions">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.submit "Submit", :confirm => "Are You Sure? Click OK to Continue" %> or <%= link_to 'Cancel', pools_path %>
+</div>
+
+  </div>
+
+
+<% end %>

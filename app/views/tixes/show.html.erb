@@ -1,0 +1,20 @@
+<% if current_user.id == @tix.user_borrow_id %> 
+<title>Transfer Ticket Page</title>
+<h3>Transfer Ticket</h3>
+<div id="formsTrans">
+<%= render 'transfer' %>
+</div>
+<% elsif can? :manage, :all %>
+<title>Transfer Ticket Page</title>
+<h3>Transfer Ticket</h3>
+<div id="formsTrans">
+<%= render :partial => 'transfer' %>
+</div>
+<% else %>
+<title>Unauthorized Access</title>
+<h3 align='center'>Unauthorized Access</h3>
+<div id="adminError"><p>You Are Not Authorized To View This Page!</p></div>
+<div id="submit">
+<%= link_to 'Get Me Out', root_path %>
+</div>
+<% end %>

@@ -1,0 +1,13 @@
+<%= form_for(@tix) do |f| %>
+  <div class="field">
+    <%= f.label :guest_f_name, "Guest First Name"%><br />
+    <%= f.text_field :guest_f_name, :size => 20  %>
+  </div>
+  <div class="field">
+    <%= f.label :guest_l_name, "Guest Last Name"%><br />
+    <%= f.text_field :guest_l_name, :size => 20  %>
+  </div>
+  <div id="submit4r">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

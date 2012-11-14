@@ -1,0 +1,14 @@
+ <% if current_user.id == @tix.user_borrow_id %>
+ <title>Input Tickets Page</title>
+<h3>Enter Guest Name</h3>
+<div id="formsGuestName">
+<%= render 'form' %>
+</div>
+
+<% else %>
+<title>Restricted Access</title>
+<h3>This is not your Ticket!</h3>
+<div id="formsGuestName2">
+<%= link_to "YOUR TICKETS", tixes_path %>
+<% end %>
+</div>

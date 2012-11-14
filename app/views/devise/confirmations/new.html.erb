@@ -1,0 +1,18 @@
+<title>Resend confirmation instructions</title>
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+<h2></h2>
+<div id="formDevise">
+  <legend>Did not receive confirmation?</legend>
+<fieldset>
+ <p><%= f.label :email, 'USMA Email' %><br />
+  <%= f.text_field :email %></p>
+  <div id= "submit2">
+    <br>
+  <p><%= f.submit "Resend confirmation instructions" %></p>
+<% end %>
+  </div>
+      </fieldset>
+     </div>
+
+
